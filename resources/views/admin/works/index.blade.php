@@ -13,6 +13,9 @@
                     <div class="card-title text-center my-3">
                         <h4><a href="#">{{$site->title}}</a></h4>
                     </div>
+                    <div class="text-center my-3">
+                        <span class="fw-bold">{{$site->type->category}}</span>
+                    </div>
                     <div class="card-text text-center">
                         <p>{{$site->description}}</p>
                     </div>

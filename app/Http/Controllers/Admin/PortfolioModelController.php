@@ -5,8 +5,11 @@ use App\Http\Controllers\Controller;
 use App\Models\PortfolioModel;
 use App\Http\Requests\StorePortfolioModelRequest;
 use App\Http\Requests\UpdatePortfolioModelRequest;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use App\Models\Types;
+
 
 class PortfolioModelController extends Controller
 {
@@ -28,8 +31,10 @@ class PortfolioModelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+       
         $site = PortfolioModel::findOrFail($id);
+        
         return view('admin.works.show', compact('site'));
     }
     /**
@@ -39,7 +44,8 @@ class PortfolioModelController extends Controller
      */
     public function create()
     {
-        return view('admin.works.create');
+        $types=Types::all();
+        return view('admin.works.create', compact('types'));
     }
 
     /**
@@ -76,7 +82,8 @@ class PortfolioModelController extends Controller
     public function edit($id)
     {
         $site =PortfolioModel::findOrFail($id);
-       return view('admin.works.edit', compact('site'));
+        $types=Types::all(); //<---------------------------------------HO PASSATO IL VALORE TYPES MA NON SONO SICURO SERVA, DA CONTROLLARE
+       return view('admin.works.edit', compact('site', 'types'));
     }
 
     /**
@@ -90,6 +97,11 @@ class PortfolioModelController extends Controller
     {   
         $site = PortfolioModel::findOrFail($id);
         $form_data = $request->all();
+
+       //OTTENGO LA CATEGORIA SELEZIONATA <--------------------------------------------------------QUI!!
+        $selectedCategories = $request->input('categories', []);
+        //SALVO IL DATO
+        $site->type->update($selectedCategories);
         
         if($request->hasFile('image')){
             $path = Storage::put('image', $request->image);
@@ -97,6 +109,7 @@ class PortfolioModelController extends Controller
             $form_data['image']=$path;
         }
 
+        
         $site->update($form_data);
         
         

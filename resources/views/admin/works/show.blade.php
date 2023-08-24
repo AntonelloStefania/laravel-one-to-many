@@ -14,6 +14,9 @@
                 <div>
                     <img src="{{asset('storage/'.$site->image)}}" width="600px" alt="">
                 </div>
+                <div class="text-center my-4">
+                   Type: <span class="fw-bold">{{$site->type->category}}</span>
+                </div>
                 <div class="my-5">
                     <h5>Description:</h5>
                     <p>{{$site->description}}</p>
@@ -39,11 +42,52 @@
                     </li>
                 </ul>
             </div>
+            {{-- QUI C'E' LA CHIAMATA A MOBILE E L'OPERATORE TERNARIO PER FAR USCIRE LA SCRITTA GIUSTA --}}
+             <div class="my-5 text-center">
+                <h5>Compatible Devices:</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <span>{{ $site->type->mobile ? 'mobile' : '' }}</span>
+                    </li>
+                    <li>
+                        <span> {{ $site->type->tablet ? 'tablet' : '' }}</span>
+                    </li>
+                    <li>
+                        <span>{{ $site->type->pc ? 'PC' : '' }}</span>
+                    </li>
+                    <li>
+                        <span>{{ $site->type->smart_tv ? 'Smart_tv' : '' }}</span>
+                    </li>
+                </ul>
+                
+            </div>
+            <div class="my-5 text-center">
+                <h5>Compatible OS:</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <span>{{ $site->type->windows ? 'Windows' : '' }}</span>
+                    </li>
+                    <li>
+                        <span> {{ $site->type->mac ? 'Mac' : '' }}</span>
+                    </li>
+                    <li>
+                        <span>{{ $site->type->linux ? 'Linux' : '' }}</span>
+                    </li>
+                    <li>
+                        <span>{{ $site->type->android ? 'Android' : '' }}</span>
+                    </li>
+                    <li>
+                        <span>{{ $site->type->ios ? 'iOS' : '' }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="my-5 text-center">
+                <span>Age Restriction: {{$site->type->age_restriction ? '18+' : ''}}</span>
+            </div>
             <div class="text-center">
               <span>Link to Project: <a href="#">{{$site->link}}</a></span>
             </div>
         </div>
-        
     </div>
 </div>
 

@@ -10,8 +10,8 @@ class PortfolioModel extends Model
 {
     use HasFactory;
     protected $fillable = ['title','front_ender','back_ender','ui','ux','illustrator','image','description','link','type_id'];
-
-    public function types(){
+    
+    public function type(){ //<------------------------QUI HO CAMBIATO DA TYPES A TYPE PER FAR FUNZIONARE LA CHIAMATA CON $site->type->category
         return $this->belongsTo(Types::class);
     }
 

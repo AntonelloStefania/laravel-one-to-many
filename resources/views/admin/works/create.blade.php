@@ -62,6 +62,91 @@
                     </label>
                     <input class="ps-3 form-control" type="text" id="link" name="link">
                 </div>
+                <div class="form-group my-5">
+                    <label for="" class="control-label mb-3">
+                        Website type:
+                     </label>
+                    <select class="form-control" name="type_id" id="type_id">
+                        @foreach($types as $type)
+                            <option value="{{$type->id}}">{{$type->category}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group my-5">
+                    <label for="" class="control-label mb-3">
+                        Supported Devices:
+                     </label>
+                     <ul>
+                        <li>
+                           <label for="">
+                            Mobile:
+                           </label>
+                           {{-- IMPORTANTE!! IL NOME DELL'INPUT PER ASSOCIARE ALLA CATEGORIA --}}
+                            <input type="checkbox" name="categories[mobile]" id="mobile" value="1" >
+                        </li>
+                        <li>
+                            <label for="">
+                             Tablet:
+                            </label>
+                             <input type="checkbox" name="categories[tablet]" id="tablet" value="1">
+                         </li>
+                         <li>
+                            <label for="">
+                             PC:
+                            </label>
+                             <input type="checkbox" name="categories[pc]" id="pc" value="1" >
+                         </li>
+                         <li>
+                            <label for="">
+                             Smart TV:
+                            </label>
+                             <input type="checkbox" name="categories[smart_tv]" id="smart_tv" value="1" >
+                         </li>
+                     </ul>
+                </div>
+                <div class="form-group my-5">
+                    <label for="" class="control-label mb-3">
+                        Supported OS:
+                     </label>
+                     <ul>
+                        <li>
+                           <label for="">
+                            Windows:
+                           </label>
+                            <input type="checkbox" name="categories[windows]" id="windows" value="1">
+                        </li>
+                        <li>
+                            <label for="">
+                             Mac:
+                            </label>
+                             <input type="checkbox" name="categories[mac]" id="mac" value="1">
+                         </li>
+                         <li>
+                            <label for="">
+                             Linux:
+                            </label>
+                             <input type="checkbox" name="categories[linux]" id="linux" value="1">
+                         </li>
+                         <li>
+                            <label for="">
+                             Android:
+                            </label>
+                             <input type="checkbox" name="categories[android]" id="android" value="1">
+                         </li>
+                         <li>
+                            <label for="">
+                             iOS:
+                            </label>
+                             <input type="checkbox" name="categories[ios]" id="ios" value="1">
+                         </li>
+                     </ul>
+                </div>
+                <div class="form-group my-5">
+                    <label for="">
+                        Age Restriction:
+                    </label>
+                    <input type="checkbox" name="categories[age_restriction]" id="age_restriction" value="1">
+                </div>
                 <div class="col-12 d-flex justify-content-center py-4">
                     <button type="submit" class="btn btn-md btn-success">Add</button>
                 </div>
