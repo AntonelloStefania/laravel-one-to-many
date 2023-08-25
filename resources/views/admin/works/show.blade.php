@@ -43,7 +43,7 @@
                 </ul>
             </div>
             {{-- QUI C'E' LA CHIAMATA A MOBILE E L'OPERATORE TERNARIO PER FAR USCIRE LA SCRITTA GIUSTA --}}
-             <div class="my-5 text-center">
+             {{-- <div class="my-5 text-center">
                 <h5>Compatible Devices:</h5>
                 <ul class="list-unstyled">
                     <li>
@@ -83,7 +83,7 @@
             </div>
             <div class="my-5 text-center">
                 <span>Age Restriction: {{$site->type->age_restriction ? '18+' : ''}}</span>
-            </div>
+            </div> --}}
             <div class="text-center">
               <span>Link to Project: <a href="#">{{$site->link}}</a></span>
             </div>

@@ -98,10 +98,10 @@ class PortfolioModelController extends Controller
         $site = PortfolioModel::findOrFail($id);
         $form_data = $request->all();
 
-       //OTTENGO LA CATEGORIA SELEZIONATA <--------------------------------------------------------QUI!!
-        $selectedCategories = $request->input('categories', []);
-        //SALVO IL DATO
-        $site->type->update($selectedCategories);
+    //    //OTTENGO LA CATEGORIA SELEZIONATA <--------------------------------------------------------QUI!!
+    //     $selectedCategories = $request->input('categories', []);
+    //     //SALVO IL DATO
+    //     $site->type->update($selectedCategories);
         
         if($request->hasFile('image')){
             $path = Storage::put('image', $request->image);

@@ -72,7 +72,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group my-5">
+                {{-- <div class="form-group my-5">
                     <label for="" class="control-label mb-3">
                         Supported Devices:
                      </label>
@@ -81,7 +81,7 @@
                            <label for="">
                             Mobile:
                            </label>
-                           {{-- IMPORTANTE!! IL NOME DELL'INPUT PER ASSOCIARE ALLA CATEGORIA --}}
+                           IMPORTANTE!! IL NOME DELL'INPUT PER ASSOCIARE ALLA CATEGORIA
                             <input type="checkbox" name="categories[mobile]" id="mobile" value="1" >
                         </li>
                         <li>
@@ -146,7 +146,7 @@
                         Age Restriction:
                     </label>
                     <input type="checkbox" name="categories[age_restriction]" id="age_restriction" value="1">
-                </div>
+                </div> --}}
                 <div class="col-12 d-flex justify-content-center py-4">
                     <button type="submit" class="btn btn-md btn-success">Add</button>
                 </div>
